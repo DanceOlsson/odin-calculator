@@ -6,18 +6,18 @@ function createButtons() {
         row.classList.add("grid-row");
 
 
-        //nested loop creating the buttons
+        //nested loop creating divs for the buttons
         for (let j = 0; j < 4; j++) {
-            const button = document.createButtons();
+            const button = document.createElement("button");
             button.classList.add("grid-button");
             // add button.textcontent here? or in css??
 
             // Unique button ID
-            button.id = `btn-${i}-${j}`;
+            button.id = `btn-${i+1}-${j+1}`;
 
             // Add event listener
             button.addEventListener("click", () => {
-                console.log(`Button ${i}-${j} clicked`);
+                console.log(`Button ${i+1}-${j+1} clicked`);
             })
 
             row.appendChild(button);
@@ -25,3 +25,5 @@ function createButtons() {
         container.appendChild(row);
     }
 }
+
+createButtons();
