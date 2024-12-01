@@ -1,4 +1,6 @@
-const buttons-container = document.getElementById("buttons-container");
+const buttonsContainer = document.getElementById("buttons-container");
+const calculatorContainer = document.getElementById("calculator-container");
+const displayContainer = document.getElementById("display-container");
 
 const buttonValues = [
     ['7', '8', '9', '+'],
@@ -14,6 +16,7 @@ const buttonTextContent = [
     ['0', '.', '=', '➗']
 ]
 
+// Creates buttons and assigns content + value to each button
 function createButtons() {
     for (let i = 0; i < 4; i++) {
         const row = document.createElement("div");
@@ -37,8 +40,20 @@ function createButtons() {
 
             row.appendChild(button);
         }
-        buttons-container.appendChild(row);
+        buttonsContainer.appendChild(row);
     }
+}
+
+
+// Creates a display that shows inputs and answer in realtime
+function createDisplay() {
+    
+}
+
+// Creates a nice container that looks like a physical calculator :D
+function createCalculator() {
+    createButtons();
+    createDisplay();
 }
 
 createButtons();
