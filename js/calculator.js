@@ -14,8 +14,8 @@ function divideOperator(num1, num2) {
     return num1 / num2;
 }
 
-funtion calcOperator(operator, num1, num2) {
+function calcOperator(operator, num1, num2) {
     return operator(num1, num2);
 }
 
-console.log(calcOperator(addOperator, 5, 5))
+console.log(calcOperator(multiplyOperator, 5, 5))
