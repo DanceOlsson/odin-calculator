@@ -1,4 +1,4 @@
-const container = document.getElementById("container");
+const buttons-container = document.getElementById("buttons-container");
 
 const buttonValues = [
     ['7', '8', '9', '+'],
@@ -24,7 +24,7 @@ function createButtons() {
         for (let j = 0; j < 4; j++) {
             const button = document.createElement("button");
             button.classList.add("grid-button");
-            button.textContent.add(buttonTextContent[i][j]);
+            button.textContent = buttonTextContent[i][j];
             
 
             // Unique button ID
@@ -37,7 +37,7 @@ function createButtons() {
 
             row.appendChild(button);
         }
-        container.appendChild(row);
+        buttons-container.appendChild(row);
     }
 }
 
