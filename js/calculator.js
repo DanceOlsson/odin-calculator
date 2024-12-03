@@ -35,7 +35,7 @@ function processInput(value) {
         currentInput += value;
         return currentInput;
     }
-   if (value === "." && !currentInput.includes(".")) {
+    if (value === '.' && !currentInput.includes('.')) {
         currentInput += value;
         return currentInput;
     } 
