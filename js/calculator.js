@@ -31,8 +31,13 @@ let operator = '';
 
 
 function processInput(value) {
-    if (!isNaN(value) || value === ".") {
+    if (!isNaN(value)) {
         currentInput += value;
         return currentInput;
     }
+   if (value === "." && !currentInput.includes(".")) {
+        currentInput += value;
+        return currentInput;
+    } 
+    return currentInput; // Always return currentInput, even if we didn't change it
 }
