@@ -32,6 +32,7 @@ let operator = '';
 
 function processInput(value) {
     if (!isNaN(value)) {
+        clearOperatorHighlights();
         currentInput += value;
         return currentInput;
     }
@@ -39,5 +40,18 @@ function processInput(value) {
         currentInput += value;
         return currentInput;
     } 
+    if (['-', '+', '/', '*'].includes(value)) {
+        clearOperatorHighlights();
+        const operatorButton = document.querySelector(`button[data-value="${value}"]`);
+        operatorButton?.classList.add('operator-active');
+        operator = value;
+    }
     return currentInput; // Always return currentInput, even if we didn't change it
+}
+
+// This is not done
+clearOperatorHighlights() {
+    document.querySelectorAll('.operator-active').forEach(button => {
+        button.classList.remove('operator-active');
+    });
 }

@@ -31,13 +31,15 @@ function createButtons() {
             button.classList.add('grid-button');
             button.textContent = buttonTextContent[i][j];
             
+            button.dataset.value = buttonValues[i][j];
             
-            // Unique button ID
-            button.id = `btn-${i+1}-${j+1}`;
-            
+            if (['+', '-', '*', '/'].includes(buttonValues[i][j])) {
+                button.classList.add('operator-button');
+            }
+
             //When clicked it sends data to calculator.js logic
             button.addEventListener('click', () => {
-                const result = processInput(button.textContent);
+                const result = processInput(buttonValues[i][j]);
                 displayContainer.textContent = result;
             })
             
