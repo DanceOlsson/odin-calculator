@@ -46,8 +46,18 @@ body {
     flex: 3.5;  /* Makes the button span two columns */
 }
 
-.grid-button:last-child {
+button[data-value="+"],
+button[data-value="-"],
+button[data-value="*"],
+button[data-value="/"],
+button[data-value="AC"],
+button[data-value="+/-"],
+button[data-value="%"],
+button[data-value="="] {
+    
     background-color: #a0915f;
+    color: #4a4a4a;
+    font-weight: bold;
 }
 
 .grid-button:hover {

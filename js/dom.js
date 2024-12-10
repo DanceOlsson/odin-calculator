@@ -11,13 +11,6 @@ const buttonValues = [
     ['0', '.', '=']
 ]
 
-const buttonTextContent = [
-    ['AC', '+/-', '%', '➗'],
-    ['7', '8', '9', '✖️'],
-    ['4', '5', '6', '➖'],
-    ['1', '2', '3', '➕'],
-    ['0', '.', '=']
-]
 
 
 // Creates buttons and assigns content + value to each button
@@ -31,7 +24,7 @@ function createButtons() {
         for (let j = 0; j < threeButtonsInLastRow; j++) {
             const button = document.createElement('button');
             button.classList.add('grid-button');
-            button.textContent = buttonTextContent[i][j];
+            button.textContent = buttonValues[i][j];
             
             button.dataset.value = buttonValues[i][j];
 
@@ -39,7 +32,7 @@ function createButtons() {
                 button.classList.add('zero-button');
             }
             
-            if (['+', '-', '*', '/'].includes(buttonValues[i][j])) {
+            if (['+', '-', '*', '/', 'AC', '+/-', '%', '='].includes(buttonValues[i][j])) {
                 button.classList.add('operator-button');
             }
 
