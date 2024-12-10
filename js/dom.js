@@ -2,6 +2,7 @@ const buttonsContainer = document.getElementById('buttons-container');
 const calculatorContainer = document.getElementById('calculator-container');
 const displayContainer = document.getElementById('display-container');
 
+const calculator = new Calculator();
 
 const buttonValues = [
     ['AC', '+/-', '%', '/'],
@@ -12,7 +13,6 @@ const buttonValues = [
 ]
 
 
-
 // Creates buttons and assigns content + value to each button
 function createButtons() {
     for (let i = 0; i < 5; i++) {
@@ -20,8 +20,8 @@ function createButtons() {
         row.classList.add('grid-row');
         
         // For the last row (i === 4), only loop 3 times instead of 4
-        const threeButtonsInLastRow = (i === 4) ? 3 : 4;
-        for (let j = 0; j < threeButtonsInLastRow; j++) {
+        const threeButtonsOnLastRow = (i === 4) ? 3 : 4;
+        for (let j = 0; j < threeButtonsOnLastRow; j++) {
             const button = document.createElement('button');
             button.classList.add('grid-button');
             button.textContent = buttonValues[i][j];
@@ -38,8 +38,11 @@ function createButtons() {
 
             //When clicked it sends data to calculator.js logic
             button.addEventListener('click', () => {
-                const result = processInput(buttonValues[i][j]);
+                const result = calculator.processInput(buttonValues[i][j]);
                 displayContainer.textContent = result;
+                console.log(`NEW PRESS - currentInput: ${calculator.currentInput}`);
+                console.log(`currentOperator: ${calculator.currentOperator}`);
+                console.log(`previousInput: ${calculator.previousInput}`);
             })
             
             row.appendChild(button);
