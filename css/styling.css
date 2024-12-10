@@ -46,15 +46,7 @@ body {
     flex: 3.5;  /* Makes the button span two columns */
 }
 
-button[data-value="+"],
-button[data-value="-"],
-button[data-value="*"],
-button[data-value="/"],
-button[data-value="AC"],
-button[data-value="+/-"],
-button[data-value="%"],
-button[data-value="="] {
-    
+.operator-button {
     background-color: #a0915f;
     color: #4a4a4a;
     font-weight: bold;
