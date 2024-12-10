@@ -1,27 +1,32 @@
-// Operation functions
+// // Operation functions
 
-function addOperator(num1, num2) {
-    return num1 + num2;
+// function addOperator(num1, num2) {
+//     return num1 + num2;
+// }
+
+// function subtractOperator(num1, num2) {
+//     return num1 - num2;
+// }
+
+// function multiplyOperator(num1, num2) {
+//     return num1 * num2;
+// }
+
+// function divideOperator(num1, num2) {
+//     return num1 / num2;
+// }
+
+// function calcOperator(operator, num1, num2) {
+//     return operator(num1, num2);
+// }
+
+//Store operators in an object instead of having separate functions for each one
+const operators = {
+    '+': (a, b) => a + b,
+    '-': (a, b) => a - b,
+    '*': (a, b) => a * b,
+    '/': (a, b) => b !== 0 ? a / b : 'Error',
 }
-
-function subtractOperator(num1, num2) {
-    return num1 - num2;
-}
-
-function multiplyOperator(num1, num2) {
-    return num1 * num2;
-}
-
-function divideOperator(num1, num2) {
-    return num1 / num2;
-}
-
-function calcOperator(operator, num1, num2) {
-    return operator(num1, num2);
-}
-
-console.log(calcOperator(multiplyOperator, 5, 5))
-
 
 //Calculator state and logic
 
@@ -48,9 +53,8 @@ function processInput(value) {
     }
     return currentInput; // Always return currentInput, even if we didn't change it
 }
-
-// This is not done
-clearOperatorHighlights() {
+//not done
+function clearOperatorHighlights() {
     document.querySelectorAll('.operator-active').forEach(button => {
         button.classList.remove('operator-active');
     });

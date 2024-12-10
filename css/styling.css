@@ -42,7 +42,11 @@ body {
     cursor: pointer;
 }
 
-.grid-button:nth-child(4) {
+.zero-button {
+    flex: 3.5;  /* Makes the button span two columns */
+}
+
+.grid-button:last-child {
     background-color: #a0915f;
 }
 

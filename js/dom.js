@@ -4,34 +4,40 @@ const displayContainer = document.getElementById('display-container');
 
 
 const buttonValues = [
-    ['7', '8', '9', '+'],
+    ['AC', '+/-', '%', '/'],
+    ['7', '8', '9', '*'],
     ['4', '5', '6', '-'],
-    ['1', '2', '3', '*'],
-    ['0', '.', '=', '/'],
+    ['1', '2', '3', '+'],
+    ['0', '.', '=']
 ]
 
 const buttonTextContent = [
-    ['7', '8', '9', '➕'],
-    ['4', '5', '6', '➖'], 
-    ['1', '2', '3', '✖️'],
-    ['0', '.', '=', '➗']
+    ['AC', '+/-', '%', '➗'],
+    ['7', '8', '9', '✖️'],
+    ['4', '5', '6', '➖'],
+    ['1', '2', '3', '➕'],
+    ['0', '.', '=']
 ]
 
 
 // Creates buttons and assigns content + value to each button
 function createButtons() {
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
         const row = document.createElement('div');
         row.classList.add('grid-row');
         
-        
-        //nested loop creating divs for the buttons
-        for (let j = 0; j < 4; j++) {
+        // For the last row (i === 4), only loop 3 times instead of 4
+        const threeButtonsInLastRow = (i === 4) ? 3 : 4;
+        for (let j = 0; j < threeButtonsInLastRow; j++) {
             const button = document.createElement('button');
             button.classList.add('grid-button');
             button.textContent = buttonTextContent[i][j];
             
             button.dataset.value = buttonValues[i][j];
+
+            if (buttonValues[i][j] === '0') {
+                button.classList.add('zero-button');
+            }
             
             if (['+', '-', '*', '/'].includes(buttonValues[i][j])) {
                 button.classList.add('operator-button');
